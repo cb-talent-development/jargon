@@ -1,7 +1,5 @@
-class LocalizationsController < ApplicationController
+class LocalizationsController < APIController
   include LocalizationHelper
-  respond_to :json
-  protect_from_forgery with: :null_session
 
   def index
     @localizations = Localization.all
