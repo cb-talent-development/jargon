@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   scope :api do
-    resources :localizations, only: [:show, :index, :create, :update, :destroy], defaults: {format: :json}
+    resources :localizations, only: [:show, :index, :create, :update, :destroy], defaults: {format: :json} do
+      member do
+        post 'locales', to: "localizations#create_locale", as: nil
+        get 'locales', to: "localizations#index_locales", as: :locales
+        get ':locale', to: "localizations#show_locale", as: :locale
+        put ':locale', to: "localizations#update_locale", as: nil
+        delete ':locale', to: "localizations#destroy_locale", as: nil
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
