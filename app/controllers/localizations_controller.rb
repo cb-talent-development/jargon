@@ -1,5 +1,7 @@
 class LocalizationsController < APIController
   include LocalizationHelper
+  doorkeeper_for :index, :index_locales, :show, :show_locale, scopes: [:public]
+  doorkeeper_for :create, :update, :destroy, :create_locale, :update_locale, :destroy_locale, scopes: [:write, :update]
 
   def index
     @localizations = Localization.all

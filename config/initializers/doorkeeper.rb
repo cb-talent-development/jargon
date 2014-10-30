@@ -1,9 +1,6 @@
 Doorkeeper.configure do
-  # Change the ORM that doorkeeper will use.
-  # Currently supported options are :active_record, :mongoid2, :mongoid3, :mongo_mapper
   orm :active_record
 
-  # This block will be called to check whether the resource owner is authenticated or not.
   resource_owner_authenticator do
     current_user || warden.authenticate!(:scope => :user)
   end
@@ -15,20 +12,6 @@ Doorkeeper.configure do
   #   Admin.find_by_id(session[:admin_id]) || redirect_to(new_admin_session_url)
   # end
 
-  # Authorization Code expiration time (default 10 minutes).
-  # authorization_code_expires_in 10.minutes
-
-  # Access token expiration time (default 2 hours).
-  # If you want to disable expiration, set this to nil.
-  # access_token_expires_in 2.hours
-
-  # Reuse access token for the same resource owner within an application (disabled by default)
-  # Rationale: https://github.com/doorkeeper-gem/doorkeeper/issues/383
-  # reuse_access_token
-
-  # Issue access tokens with refresh token (disabled by default)
-  # use_refresh_token
-
   # Provide support for an owner to be assigned to each registered application (disabled by default)
   # Optional parameter :confirmation => true (default false) if you want to enforce ownership of
   # a registered application
@@ -38,20 +21,8 @@ Doorkeeper.configure do
   # Define access token scopes for your provider
   # For more information go to
   # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
-  # default_scopes  :public
-  # optional_scopes :write, :update
-
-  # Change the way client credentials are retrieved from the request object.
-  # By default it retrieves first from the `HTTP_AUTHORIZATION` header, then
-  # falls back to the `:client_id` and `:client_secret` params from the `params` object.
-  # Check out the wiki for more information on customization
-  # client_credentials :from_basic, :from_params
-
-  # Change the way access token is authenticated from the request object.
-  # By default it retrieves first from the `HTTP_AUTHORIZATION` header, then
-  # falls back to the `:access_token` or `:bearer_token` params from the `params` object.
-  # Check out the wiki for more information on customization
-  # access_token_methods :from_bearer_authorization, :from_access_token_param, :from_bearer_param
+  default_scopes  :public
+  optional_scopes :write, :update
 
   # Change the native redirect uri for client apps
   # When clients register with the following redirect uri, they won't be redirected to any server and the authorization code will be displayed within the provider
