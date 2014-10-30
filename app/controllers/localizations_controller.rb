@@ -12,16 +12,14 @@ class LocalizationsController < APIController
 
   def create
     @localization = Localization.new(name: params[:name])
-    save_or_error @localization do
-      redirect_to_localization
-    end
+    localization.save!
+    redirect_to_localization
   end
 
   def update
     localization.name = params[:name]
-    save_or_error localization do
-      redirect_to_localization
-    end
+    localization.save!
+    redirect_to_localization
   end
 
   def destroy
@@ -41,27 +39,18 @@ class LocalizationsController < APIController
 
   def create_locale
     @locale = localization.locales.new(locale: params[:locale], data: params[:data])
-    begin
-      localization.save!
-      redirect_to locale_localization_path(localization, @locale.locale)
-    rescue
-      render json: locale.errors.full_messages, status: :failed_dependency
-    end
+    localization.save!
+    redirect_to locale_localization_path(localization, @locale.locale)
   end
 
   def update_locale
     locale.data = params[:data]
-    save_or_error locale do
-      redirect_to locale_localization_path(localization, locale.locale), status: :see_other
-    end
+    locale.save!
+    redirect_to locale_localization_path(localization, locale.locale), status: :see_other
   end
 
   def destroy_locale
-    begin
-      locale.destroy!
-      redirect_to locales_localization_path(localization), status: :see_other
-    rescue
-      render json: {}, status: :not_found
-    end
+    locale.destroy!
+    redirect_to locales_localization_path(localization), status: :see_other
   end
 end
