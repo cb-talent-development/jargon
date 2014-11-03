@@ -1,0 +1,10 @@
+!!! 5
+%html
+  %head
+    -#%title #{title}
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "vendor/modernizr"
+  %body
+    = render :partial => 'components/navbar'
+    = yield
+    = javascript_include_tag "application"

@@ -22,6 +22,7 @@ gem 'spring',        group: :development
 # Front End
 gem 'jquery-rails'
 gem 'foundation-rails', '~> 5.4.5'
+gem 'haml', '~> 4.0.5'
 
 # Auth
 gem 'doorkeeper', '~> 1.4.0'
