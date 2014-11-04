@@ -2,7 +2,7 @@
   %ul.title-area
     %li.name
       %h1
-        %a{href: '#'} Jargon
+        %a{href: '/'} Jargon
     %li.toggle-topbar.menu-icon
       %a{href: true}
         %span Menu
@@ -13,9 +13,11 @@
           %a{href: '#'} #{current_user.email}
           %ul.dropdown
             %li
-              %a{href:'#'} Edit Account
+              = link_to "Edit Account", edit_user_registration_path
             %li
               = link_to "Log Out", destroy_user_session_path, method: :delete
-    %ul.left
-      %li
-        %a{href: '#'} Left
+      - else
+        %li
+          = link_to "Sign In", new_user_session_path
+        %li
+          = link_to "Register", new_user_registration_path
