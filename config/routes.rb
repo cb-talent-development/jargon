@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: "localizations#index", defaults: {format: :json}
+  root to: 'application#index'
 end
