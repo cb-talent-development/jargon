@@ -3,10 +3,13 @@
     %li.name
       %h1
         %a{href: '#'} Jargon
+    %li.toggle-topbar.menu-icon
+      %a{href: true}
+        %span Menu
   %section.top-bar-section
     %ul.right
       - if user_signed_in?
-        %li.has_dropdown
+        %li.has-dropdown
           %a{href: '#'} #{current_user.email}
           %ul.dropdown
             %li

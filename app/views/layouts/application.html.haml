@@ -9,3 +9,7 @@
       = render :partial => 'components/navbar'
     = yield
     = javascript_include_tag "application"
+    :javascript
+      $(document).ready(function(){
+        $(document).foundation();
+      });
