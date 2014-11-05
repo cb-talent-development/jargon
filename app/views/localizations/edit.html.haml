@@ -2,7 +2,7 @@
   %fieldset
     %legend Editing #{@localization.name}
 
-    = form_for [:api, @localization], html: {role: 'form'} do |f|
+    = form_for @localization, html: {role: 'form'} do |f|
       .row
         = f.label :name
         = f.text_field :name

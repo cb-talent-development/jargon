@@ -1,8 +1,8 @@
 module Api
   class LocalizationsController < APIController
     include LocalizationHelper
-    doorkeeper_for :index, :show, scopes: [:public]
-    doorkeeper_for :create, :update, :destroy, scopes: [:write, :update]
+    # doorkeeper_for :index, :show, scopes: [:public]
+    # doorkeeper_for :create, :update, :destroy, scopes: [:write, :update]
 
     def index
       @localizations = Localization.all
@@ -15,7 +15,7 @@ module Api
 
     def create
       @localization = Localization.new(name: params[:name])
-      localization.save!
+      localization!.save!
       redirect_to_localization
     end
 
