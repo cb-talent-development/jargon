@@ -16,8 +16,10 @@ Rails.application.routes.draw do
     use_doorkeeper
   end
 
-  get '/localizations', to: 'localizations#index'
-
+  get '/localizations/new', to: 'localizations#new', as: :new_localization
+  get '/localizations', to: 'localizations#index', as: :localizations
+  get '/localizations/:id', to: 'localizations#show', as: :localization
+  get '/localizations/:id/edit', to: 'localizations#edit', as: :edit_localization
 
   authenticated :user do
     root to: 'localizations#index', :as => :authenticated_root

@@ -9,22 +9,23 @@
       %th Updated
       %th Actions
     %tbody
-      - @localizations.each do |l|
+      - @localizations.each do |localization|
         %tr
-          %td #{l.id}
-          %td #{l.name}
+          %td #{localization.id}
           %td
-            - l.locales.each do |lo|
+            = link_to localization.name, localization_path(localization)
+          %td
+            - localization.locales.each do |lo|
               %a{href:'#'}
                 #{lo.locale}
-          %td #{l.created_at} by #{l.owner.email}
-          %td #{l.updated_at}
+          %td #{localization.created_at} by #{localization.owner.email}
+          %td #{localization.updated_at}
           %td
             %ul.button-group.stack
               %li
-                %a.button.tiny{href:'#'} Edit
+                = link_to 'Edit', edit_localization_path(localization), class: 'button tiny'
               %li
-                %a.button.tiny.alert{href:'#'} Delete
+                = render partial: 'delete_form', locals: { localization: localization }
 
 
-  %a.button.tiny.success.right{href:'#'} New Localization
+  = link_to 'New Localization', new_localization_path, class: 'button tiny success right'

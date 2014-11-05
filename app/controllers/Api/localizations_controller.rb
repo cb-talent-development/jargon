@@ -10,7 +10,7 @@ module Api
     end
 
     def show
-      respond_with localization
+      respond_with localization!
     end
 
     def create

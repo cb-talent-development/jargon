@@ -1,0 +1,26 @@
+.small-6.small-offset-3.columns
+  %fieldset
+    %legend Localization #{@localization.name}
+    .small-8.columns
+      %h4 Name:
+      %p #{@localization.name}
+
+      %h4 UUID:
+      %code N/A
+
+      %h4 Owner:
+      %p #{@localization.owner.email}
+
+      %h4 Created:
+      %p #{@localization.created_at}
+
+      %h4 Updated:
+      %p #{@localization.updated_at}
+
+    .small-4.columns
+      %h4 Actions
+      %ul.button-group
+        %li
+          %a.button.tiny{href: '#'} Edit
+        %li
+          %a.button.tiny.alert{href: '#'} Delete

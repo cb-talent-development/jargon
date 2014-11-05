@@ -1,0 +1,4 @@
+- submit_btn_css ||= 'button tiny alert'
+= form_tag [:api, localization] do
+  %input{:name => "_method", :type => "hidden", :value => "delete"}/
+  = submit_tag 'Destroy', onclick: "return confirm('Are you sure?')", class: submit_btn_css
