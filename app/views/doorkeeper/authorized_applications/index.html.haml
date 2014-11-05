@@ -1,0 +1,15 @@
+.small-6.small-offset-3.columns
+  %fieldset
+    %legend Your authorized applications
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Application
+          %th Created At
+          %th
+      %tbody
+        - @applications.each do |application|
+          %tr
+            %td= application.name
+            %td= application.created_at.strftime('%Y-%m-%d %H:%M:%S')
+            %td= render 'delete_form', application: application, submit_btn_css: 'button tiny'

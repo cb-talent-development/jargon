@@ -19,5 +19,15 @@ module Jargon
       g.template_engine :haml
       g.test_framework :rspec
     end
+    config.to_prepare do
+      # Only Applications list
+      Doorkeeper::ApplicationsController.layout "application"
+
+      # Only Authorization endpoint
+      Doorkeeper::AuthorizationsController.layout "application"
+
+      # Only Authorized Applications
+      Doorkeeper::AuthorizedApplicationsController.layout "application"
+    end
   end
 end
