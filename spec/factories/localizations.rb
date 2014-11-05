@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :localization do
     sequence(:name) { |n| "Localization #{n}" }
+    owner
   end
 end

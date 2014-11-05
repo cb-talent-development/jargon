@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Locale, :type => :model do
-  context '#new' do
+  describe '#new' do
     let(:localization) { create(:localization) }
     let(:locale1) { create(:locale) }
     let(:locale2) { create(:locale, locale: "#{locale1.locale}")}
-    it 'prevents duplicates on a single localization' do
+    it 'prevents duplicates on a single localizations' do
       localization.locales << locale1
       expect(localization.locales << locale2).to be_falsey
     end

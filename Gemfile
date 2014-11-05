@@ -13,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-# bundle exec rake doc:rails generates the API under doc/api.
+# bundle exec rake doc:rails generates the Api under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

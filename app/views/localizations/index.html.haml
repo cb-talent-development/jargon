@@ -1,0 +1,30 @@
+.small-8.small-offset-2.columns
+  %h2 Localizations
+  %table
+    %thead
+      %th ID
+      %th Name
+      %th Locales
+      %th Created
+      %th Updated
+      %th Actions
+    %tbody
+      - @localizations.each do |l|
+        %tr
+          %td #{l.id}
+          %td #{l.name}
+          %td
+            - l.locales.each do |lo|
+              %a{href:'#'}
+                #{lo.locale}
+          %td #{l.created_at} by #{l.owner.email}
+          %td #{l.updated_at}
+          %td
+            %ul.button-group.stack
+              %li
+                %a.button.tiny{href:'#'} Edit
+              %li
+                %a.button.tiny.alert{href:'#'} Delete
+
+
+  %a.button.tiny.success.right{href:'#'} New Localization
