@@ -21,6 +21,6 @@
       %h4 Actions
       %ul.button-group
         %li
-          %a.button.tiny{href: '#'} Edit
+          = link_to 'Edit', edit_localization_path(@localization), class: 'button tiny'
         %li
-          %a.button.tiny.alert{href: '#'} Delete
+          = render partial: 'delete_form', locals: { localization: @localization }
