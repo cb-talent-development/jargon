@@ -4,11 +4,11 @@ Rails.application.routes.draw do
     use_doorkeeper
     resources :localizations, only: [:show, :index, :create, :update, :destroy], defaults: {format: :json} do
       member do
-        post 'locales', to: "localizations#create_locale", as: nil
-        get 'locales', to: "localizations#index_locales", as: :locales
-        get ':locale', to: "localizations#show_locale", as: :locale
-        put ':locale', to: "localizations#update_locale", as: nil
-        delete ':locale', to: "localizations#destroy_locale", as: nil
+        post 'locales', to: "locales#create", as: nil
+        get 'locales', to: "locales#index", as: :locales
+        get ':locale', to: "locales#show_locale", as: :locale
+        put ':locale', to: "locales#update_locale", as: nil
+        delete ':locale', to: "locales#destroy_locale", as: nil
       end
     end
   end
