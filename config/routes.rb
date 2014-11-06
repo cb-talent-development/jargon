@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         delete ':locale', to: "locales#destroy", as: nil
       end
     end
-    get 'uuid/:uuid', to: "localizations#lookup_by_uuid", as: :find_by_uuid
+    get 'uuid/:uuid/:locale', to: "localizations#lookup_by_uuid", as: :find_by_uuid
   end
 
   scope :api do

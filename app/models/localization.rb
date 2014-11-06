@@ -11,6 +11,8 @@ class Localization < ActiveRecord::Base
     locales.inject([]) { |memo, enum| memo << enum.locale }
   end
 
+  alias_method :available_locales, :list_locales
+
   def retrieve_locale locale
     locales.find { |item| item.locale === locale }
   end
