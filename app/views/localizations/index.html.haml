@@ -15,9 +15,8 @@
           %td
             = link_to localization.name, localization_path(localization)
           %td
-            - localization.locales.each do |lo|
-              %a{href:'#'}
-                #{lo.locale}
+            - localization.locales.each do |locale|
+              = link_to locale.locale, localization_locale_path(localization, locale)
           %td #{localization.created_at} by #{localization.owner.email}
           %td #{localization.updated_at}
           %td

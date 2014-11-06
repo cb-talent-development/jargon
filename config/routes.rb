@@ -10,18 +10,16 @@ Rails.application.routes.draw do
         delete ':locale', to: "locales#destroy", as: nil
       end
     end
+    get 'uuid/:uuid', to: "localizations#lookup_by_uuid", as: :find_by_uuid
   end
 
   scope :api do
     use_doorkeeper
   end
 
-  # get '/localizations/new', to: 'localizations#new', as: :new_localization
-  # get '/localizations', to: 'localizations#index', as: :localizations
-  # get '/localizations/:id', to: 'localizations#show', as: :localization
-  # get '/localizations/:id/edit', to: 'localizations#edit', as: :edit_localization
-
-  resources :localizations
+  resources :localizations do
+    resources :locales, except: [:index, :edit]
+  end
 
   authenticated :user do
     root to: 'localizations#index', :as => :authenticated_root

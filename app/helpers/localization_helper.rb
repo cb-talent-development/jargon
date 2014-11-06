@@ -3,8 +3,8 @@ module LocalizationHelper
     @localization ||= Localization.find(params[:id])
   end
 
-  def locale
-    @locale ||= Localization.find(params[:id]).retrieve_locale(params[:locale])
+  def locale!
+    @locale ||= Localization.find(params[:localization_id]).retrieve_locale(params[:id])
   end
 
   def redirect_to_localization

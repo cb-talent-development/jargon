@@ -1,0 +1,11 @@
+= form_for [@localization, @locale] do |f|
+  .row
+    = f.label :locale
+    = f.text_field :locale
+  .row
+    = f.label :yaml
+    = f.text_area :yaml
+  .row
+    - unless current_page?(:controller => 'locales', :action => 'new')
+      = render partial: 'delete_form', locals: {localization: @localization, locale: @locale}
+    = f.submit "Submit", class: 'button tiny success right'

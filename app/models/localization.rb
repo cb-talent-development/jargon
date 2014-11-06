@@ -19,6 +19,8 @@ class Localization < ActiveRecord::Base
     uuid != nil
   end
 
+  private
+
   def generate_uuid
     self.uuid = SecureRandom.uuid
   end

@@ -1,8 +1,8 @@
 module Api
   class LocalizationsController < APIController
     include LocalizationHelper
-    # doorkeeper_for :index, :show, scopes: [:public]
-    # doorkeeper_for :create, :update, :destroy, scopes: [:write, :update]
+    doorkeeper_for :index, :show, scopes: [:public]
+    doorkeeper_for :create, :update, :destroy, scopes: [:write, :update]
 
     def index
       @localizations = Localization.all
@@ -28,6 +28,11 @@ module Api
     def destroy
       localization.destroy!
       redirect_to localizations_path, status: :see_other
+    end
+
+    def lookup_by_uuid
+      @localization = Localization.find_by_uuid(params[:uuid])
+      respond_with @localization
     end
   end
 end
