@@ -37,7 +37,7 @@ class LocalesController < ApplicationController
     @locale.destroy!
     redirect_to @localization
   end
-
+  
   private
 
   def locale_params

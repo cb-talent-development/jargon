@@ -10,6 +10,7 @@ module Api
 
     def show
       respond_with localization.retrieve_locale params[:locale]
+
     end
 
     def create
@@ -27,6 +28,12 @@ module Api
     def destroy
       locale.destroy!
       redirect_to locales_localization_path(localization), status: :see_other
+    end
+
+    def lookup_by_uuid
+      @localization = Localization.find_by_uuid(params[:uuid])
+      @locale = @localization.retrieve_locale(params[:uuid])
+      respond_with @locale
     end
   end
 end

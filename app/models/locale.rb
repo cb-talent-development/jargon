@@ -13,4 +13,5 @@ class Locale < ActiveRecord::Base
   def yaml= p
     self.data = YAML.load(p)
   end
+
 end

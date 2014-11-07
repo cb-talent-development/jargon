@@ -32,8 +32,7 @@ module Api
 
     def lookup_by_uuid
       @localization = Localization.find_by_uuid(params[:uuid])
-      @locale = @localization.retrieve_locale(params[:locale])
-      respond_with @locale
+      respond_with @localization
     end
   end
 end
