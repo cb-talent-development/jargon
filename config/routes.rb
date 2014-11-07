@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       end
     end
     get 'uuid/:uuid', to: "localizations#lookup_by_uuid", as: :find_localization_by_uuid
-    get 'uuid/:uuid/:locale', to: "locale#lookup_by_uuid", as: :find_locale_by_uuid
+    get 'uuid/:uuid/:locale', to: "locales#lookup_by_uuid", as: :find_locale_by_uuid
   end
 
   scope :api do
