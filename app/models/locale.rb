@@ -14,4 +14,11 @@ class Locale < ActiveRecord::Base
     self.data = YAML.load(p)
   end
 
+  def json
+    data.to_json
+  end
+
+  def json= p
+    self.data = JSON.parse(p)
+  end
 end
