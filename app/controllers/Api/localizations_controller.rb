@@ -18,14 +18,14 @@ module Api
       @localization = Localization.new(name: params[:localization][:name])
       @localization.owner = User.find(doorkeeper_token.resource_owner_id)
       @localization.save!
-      redirect_to_localization
+      redirect_to localization_path(@localization), status: :see_other
     end
 
     def update
       @localization = Localization.find(params[:id])
       @localization.name = params[:localization][:name]
       @localization.save!
-      redirect_to_localization
+      redirect_to localization_path(@localization), status: :see_other
     end
 
     def destroy

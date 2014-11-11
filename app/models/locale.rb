@@ -4,7 +4,7 @@ class Locale < ActiveRecord::Base
   belongs_to :localization
   belongs_to :owner, class_name: User, foreign_key: 'user_id'
 
-  validates_uniqueness_of :locale, scope: :localization_id
+  validates_uniqueness_of :name, scope: :localization_id
 
   def yaml
     data.to_yaml

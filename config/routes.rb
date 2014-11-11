@@ -5,13 +5,13 @@ Rails.application.routes.draw do
       member do
         post 'locales', to: "locales#create", as: nil
         get 'locales', to: "locales#index", as: :locales
-        get ':locale', to: "locales#show", as: :locale
-        put ':locale', to: "locales#update", as: nil
-        delete ':locale', to: "locales#destroy", as: nil
+        get ':locale_name', to: "locales#show", as: :locale
+        put ':locale_name', to: "locales#update", as: nil
+        delete ':locale_name', to: "locales#destroy", as: nil
       end
     end
     get 'uuid/:uuid', to: "localizations#lookup_by_uuid", as: :find_localization_by_uuid
-    get 'uuid/:uuid/:locale', to: "locales#lookup_by_uuid", as: :find_locale_by_uuid
+    get 'uuid/:uuid/:locale_name', to: "locales#lookup_by_uuid", as: :find_locale_by_uuid
   end
 
   scope :api do

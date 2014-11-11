@@ -10,12 +10,12 @@ RSpec.describe Locale, :type => :model do
   describe '#new' do
     it 'prevents duplicates on a single localizations' do
       localization.locales << locale
-      expect(localization.locales << build(:locale, locale: locale.locale)).to be_falsey
+      expect(localization.locales << build(:locale, name: locale.name)).to be_falsey
     end
 
     it 'allows the same name across localizations' do
       localization.locales << locale
-      expect(another_localization.locales << build(:locale, locale: locale.locale)).to be_truthy
+      expect(another_localization.locales << build(:locale, name: locale.name)).to be_truthy
     end
   end
 

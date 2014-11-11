@@ -34,5 +34,6 @@ group :test, :development do
 end
 
 group :test do
+  gem "codeclimate-test-reporter", require: nil
   gem 'rspec_active_model_serializers'
 end

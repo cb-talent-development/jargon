@@ -8,14 +8,10 @@ class Localization < ActiveRecord::Base
   validates :owner, presence: true
 
   def list_locales
-    locales.inject([]) { |memo, enum| memo << enum.locale }
+    locales.inject([]) { |memo, enum| memo << enum.name }
   end
 
   alias_method :available_locales, :list_locales
-
-  def retrieve_locale locale
-    locales.find { |item| item.locale === locale }
-  end
 
   def uuid?
     uuid != nil
