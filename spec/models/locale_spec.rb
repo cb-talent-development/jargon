@@ -37,7 +37,7 @@ RSpec.describe Locale, :type => :model do
       expect(locale.yaml).to eq(locale.data.to_yaml)
     end
   end
-  
+
   describe '#yaml=' do
     it 'saves YAML to the Data field' do
       locale.yaml = new_data.to_yaml
