@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106162237) do
+ActiveRecord::Schema.define(version: 20141111190748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "locales", force: true do |t|
     t.integer  "localization_id"
-    t.string   "locale"
+    t.string   "name"
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -2,7 +2,11 @@
 
 FactoryGirl.define do
   factory :locale do
-    sequence(:locale) { |n| "Locale #{n}" }
-    data 'Data Data Data'
+    sequence(:name) { |n| "Locale #{n}" }
+    data Key1: 'Value1', Key2: 'Value2'
+
+    trait :with_json do
+      json 'Key1' => 'Value1', 'Key2' => 'Value2'
+    end
   end
 end
