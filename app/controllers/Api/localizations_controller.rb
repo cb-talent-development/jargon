@@ -10,23 +10,27 @@ module Api
     end
 
     def show
-      respond_with localization!
+      @localization = Localization.find(params[:id])
+      respond_with @localization
     end
 
     def create
-      @localization = Localization.new(name: params[:name])
-      localization!.save!
+      @localization = Localization.new(name: params[:localization][:name])
+      @localization.owner = User.find(doorkeeper_token.resource_owner_id)
+      @localization.save!
       redirect_to_localization
     end
 
     def update
-      localization.name = params[:name]
-      localization.save!
+      @localization = Localization.find(params[:id])
+      @localization.name = params[:localization][:name]
+      @localization.save!
       redirect_to_localization
     end
 
     def destroy
-      localization.destroy!
+      @localization = Localization.find(params[:id])
+      @localization.destroy!
       redirect_to localizations_path, status: :see_other
     end
 
