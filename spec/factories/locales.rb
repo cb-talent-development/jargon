@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :locale do
     sequence(:locale) { |n| "Locale #{n}" }
-    data 'Data Data Data'
+    data Key1: 'Value1', Key2: 'Value2'
   end
 end
