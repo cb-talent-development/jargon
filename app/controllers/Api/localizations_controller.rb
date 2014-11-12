@@ -15,28 +15,33 @@ module Api
     end
 
     def create
-      @localization = Localization.new(name: params[:localization][:name])
+      @localization = Localization.new(localization_params)
       @localization.owner = User.find(doorkeeper_token.resource_owner_id)
       @localization.save!
-      redirect_to localization_path(@localization), status: :see_other
+      redirect_to api_localization_path(@localization), status: :see_other
     end
 
     def update
       @localization = Localization.find(params[:id])
-      @localization.name = params[:localization][:name]
-      @localization.save!
-      redirect_to localization_path(@localization), status: :see_other
+      @localization.update(localization_params)
+      redirect_to api_localization_path(@localization), status: :see_other
     end
 
     def destroy
       @localization = Localization.find(params[:id])
       @localization.destroy!
-      redirect_to localizations_path, status: :see_other
+      redirect_to api_localizations_path, status: :see_other
     end
 
     def lookup_by_uuid
       @localization = Localization.find_by_uuid(params[:uuid])
       respond_with @localization
+    end
+
+    private
+
+    def localization_params
+      params.require(:localization).permit(:name)
     end
   end
 end
