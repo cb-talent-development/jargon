@@ -1,7 +1,7 @@
 {% assign api_cats = "api localizations locales uuid" | split: ' ' %}
 <h1>{{ site.title }}</h1>
 <ul id='links'>
-  <li><a href="/api.html">API Documentation</a></li>
+  <li><a href="#{{ site.baseurl }}api.html">API Documentation</a></li>
   {% for post in site.posts %}
     {% if post.category == null %}
     <li><a href='#{{ post.url }}'>{{ post.title }}</a></li>
