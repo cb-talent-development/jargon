@@ -1,13 +1,13 @@
 .small-8.small-offset-2.columns
-  %h2 Localizations
+  %h2 #{t('.localizations')}
   %table.localizations
     %thead
-      %th ID
-      %th Name
-      %th Locales
-      %th Created
-      %th Updated
-      %th Actions
+      %th #{t('.id')}
+      %th #{t('.name')}
+      %th #{t('.locales')}
+      %th #{t('.created')}
+      %th #{t('.updated')}
+      %th #{t('.actions')}
     %tbody
       - @localizations.each do |localization|
         %tr
@@ -16,15 +16,15 @@
             = link_to localization.name, localization_path(localization)
           %td
             - localization.locales.each do |locale|
-              = link_to locale.locale, localization_locale_path(localization, locale)
-          %td #{localization.created_at} by #{localization.owner.email}
+              = link_to locale.name, localization_locale_path(localization, locale)
+          %td #{localization.created_at} #{t('.by')} #{localization.owner.email}
           %td #{localization.updated_at}
           %td
             %ul.button-group.stack
               %li
-                = link_to 'Edit', edit_localization_path(localization), class: 'button tiny'
+                = link_to t('.edit'), edit_localization_path(localization), class: 'button tiny'
               %li
                 = render partial: 'delete_form', locals: { localization: localization }
 
 
-  = link_to 'New Localization', new_localization_path, class: 'button tiny success right'
+  = link_to t('.new_localization'), new_localization_path, class: 'button tiny success right'

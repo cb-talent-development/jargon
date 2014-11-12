@@ -5,7 +5,7 @@ class LocalizationsController < ApplicationController
   end
 
   def show
-    localization!
+    @localization = Localization.find(params[:id])
   end
 
   def new
@@ -18,21 +18,24 @@ class LocalizationsController < ApplicationController
     if @localization.save
       redirect_to @localization
     else
+      flash[:alert] = "Could not save: #{@localization.errors.full_messages.join("\n") }"
       render :new
     end
   end
 
   def edit
-    localization!
+    @localization = Localization.find(params[:id])
   end
 
   def update
-    localization!.update(localization_params)
+    @localization = Localization.find(params[:id])
+    flash[:alert] = "Could not save: #{@localization.errors.full_messages.join("\n") }" unless @localization.update(localization_params)
     redirect_to @localization
   end
 
   def destroy
-    localization!.destroy
+    @localization = Localization.find(params[:id])
+    @localization.destroy
     redirect_to localizations_path
   end
 

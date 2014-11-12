@@ -1,5 +1,5 @@
 .small-6.small-offset-3.columns
   %fieldset
-    %legend #{@locale.locale} locale for #{@localization.name}
+    %legend #{@locale.name} #{t('.locale_for')} #{@localization.name}
 
     = render 'locale_form', locals: { locale: @locale, localization: @localiztion }
