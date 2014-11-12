@@ -15,6 +15,8 @@ Returns a representation of a localization.
 * The headers must include a **valid authentication token** with a **public** scope.
 * ```:id``` is the Localization ID
 
+```GET /api/localizations/24```
+
 ### Response
 
 Returns the localization.

@@ -15,6 +15,9 @@ Deletes a localization, removing it from the database.
 * The headers must include a **valid authentication token** with a **public** scope.
 * ```:id``` is the Localization ID
 
+```DELETE /api/localizations/26```
+
+
 ### Response
 
 Redirects to the [localization index](#{% post_url 2014-11-11-localizations-index %}) on success

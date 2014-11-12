@@ -14,6 +14,8 @@ Returns a collection of all Localizations
 
 * The headers must include a **valid authentication token** with a **public** scope.
 
+```GET /api/localizations```
+
 ### Response
 
 Returns a collection of all Localizations.

@@ -15,6 +15,8 @@ Create a new localization.
 * The headers must include a **valid authentication token** with a **public** scope.
 * Parameter ```name``` is required.
 
+```POST /api/localizations```
+
 ```{
     "localization" : {
         "name": "Localization 3"

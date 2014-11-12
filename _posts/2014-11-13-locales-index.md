@@ -15,6 +15,8 @@ Returns a list of all Locales for a given Localization.
 * The headers must include a **valid authentication token** with a **public** scope.
 * ```:id``` is the Localization ID
 
+```GET /api/localizations/24/locales```
+
 ### Response
 
 Returns a list of all Locales for a given Localization.

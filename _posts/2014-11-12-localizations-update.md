@@ -17,6 +17,9 @@ Updates a localization, allowing you to change its name.
 
 The only parameter that can be edited is **name**. Others are auto-generated and read-only.
 
+```PUT /api/localizations/24```
+
+
 ```{
     "localization" : {
         "name": "Localization 2 Renamed"

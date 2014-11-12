@@ -16,6 +16,8 @@ Returns a representation of a localization.
 * ```:id``` is the Localization ID
 * ```:locale``` is the Locale's name
 
+```GET /api/localizations/24/Locale 6```
+
 ### Response
 
 Returns the Locale.
