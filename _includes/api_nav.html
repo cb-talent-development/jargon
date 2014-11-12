@@ -7,7 +7,7 @@
     {% endif %}
   {% endfor %}
   {% for category in site.categories %}
-    {% unless api_cats contains category[0] %}
+    {% if api_cats contains category[0] %}
       <li><h2>{{ category | first }}</h2>
         <ul>
         {% for posts in category %}
@@ -17,6 +17,6 @@
         {% endfor %}
         </ul>
       </li>
-    {% endunless %}
+    {% endif %}
   {% endfor %}
 </ul>

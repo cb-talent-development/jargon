@@ -1,5 +1,6 @@
 ---
 title: 'Errors'
+category: api
 
 layout: nil
 ---
