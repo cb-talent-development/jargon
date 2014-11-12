@@ -1,4 +1,0 @@
-- submit_btn_css ||= 'button tiny alert full'
-= form_tag [localization, locale] do
-  %input{:name => "_method", :type => "hidden", :value => "delete"}/
-  = submit_tag t('.destroy'), onclick: "return confirm(#{t('.confirm')})", class: submit_btn_css, style: 'transform: translateY(-100%);'
