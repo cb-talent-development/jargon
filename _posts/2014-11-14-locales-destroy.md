@@ -20,7 +20,7 @@ Deletes a localization, removing it from the database.
 
 ### Response
 
-Redirects to the [localization index](#{% post_url 2014-11-11-localizations-index %}) on success
+Redirects to the [locale index](#{% post_url 2014-11-13-locales-index %}) on success
 
 ```Status: 200 OK```
 ```{

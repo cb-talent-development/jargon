@@ -7,7 +7,7 @@ layout: api
 </nav>
 
 <section id='content'>
-  {% assign api_cats = "api localizations locales uuid" | split: ' ' %}
+  {% assign api_cats = "api Localizations Locales UUID" | split: ' ' %}
   {% for post in site.posts reversed %}
   {% if api_cats contains post.category %}
   <article class='{{ post.type }}'>
