@@ -15,14 +15,64 @@ Deletes a localization, removing it from the database.
 * The headers must include a **valid authentication token** with a **public** scope.
 * ```:id``` is the Localization ID
 
-The only parameter that can be edited is ```Name```. Others are auto-generated and read-only.
-
 ### Response
 
 Redirects to the [localization index](#{% post_url 2014-11-11-localizations-index %}) on success
 
 ```Status: 301 See Other```
 ```{
-    code: 200,
-    message: 'Your thing (id: 736) was deleted'
-}```
+          "localizations": [
+              {
+                  "id": 23,
+                  "name": "Localization 1",
+                  "created_at": "2014-11-12T19:10:21.783Z",
+                  "updated_at": "2014-11-12T19:10:21.783Z",
+                  "available_locales": [
+                      "Locale 1",
+                      "Locale 2"
+                  ],
+                  "locales": [
+                      {
+                          "id": 42,
+                          "name": "Locale 1",
+                          "data": {
+                              "hello": "world"
+                          }
+                      },
+                      {
+                          "id": 43,
+                          "name": "Locale 2",
+                          "data": {
+                              "hello": "no one"
+                          }
+                      }
+                  ]
+              },
+              {
+                  "id": 24,
+                  "name": "Localization 2",
+                  "created_at": "2014-11-12T19:10:48.557Z",
+                  "updated_at": "2014-11-12T19:10:48.557Z",
+                  "available_locales": [
+                      "Locale 1",
+                      "Locale 2"
+                  ],
+                  "locales": [
+                      {
+                          "id": 44,
+                          "name": "Locale 1",
+                          "data": {
+                              "hello": "world"
+                          }
+                      },
+                      {
+                          "id": 45,
+                          "name": "Locale 2",
+                          "data": {
+                              "hello": "mom"
+                          }
+                      }
+                  ]
+              }
+          ]
+      }```

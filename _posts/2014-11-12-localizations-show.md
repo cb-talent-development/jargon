@@ -21,6 +21,30 @@ Returns the localization.
 
 ```Status: 200 OK```
 ```{
-    code: 200,
-    message: 'Your thing (id: 736) was deleted'
-}```
+       "localization": {
+           "id": 24,
+           "name": "Localization 2",
+           "created_at": "2014-11-12T19:10:48.557Z",
+           "updated_at": "2014-11-12T19:10:48.557Z",
+           "available_locales": [
+               "Locale 1",
+               "Locale 2"
+           ],
+           "locales": [
+               {
+                   "id": 44,
+                   "name": "Locale 1",
+                   "data": {
+                       "hello": "world"
+                   }
+               },
+               {
+                   "id": 45,
+                   "name": "Locale 2",
+                   "data": {
+                       "hello": "mom"
+                   }
+               }
+           ]
+       }
+   }```

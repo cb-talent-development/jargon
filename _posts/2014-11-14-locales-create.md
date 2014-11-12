@@ -1,23 +1,26 @@
 ---
-category: Localizations
-path: '/api/localizations'
-title: 'Create Localization'
+category: Locales
+path: '/api/localizations/:id/locales'
+title: 'Create Locale'
 type: 'POST'
 oauth: 'Write Token'
 
 layout: nil
 ---
 
-Create a new localization.
+Create a new Locale for a given Localization.
 
 ### Request
 
 * The headers must include a **valid authentication token** with a **public** scope.
+* ```:id``` is the Localization ID
 * Parameter ```name``` is required.
+* Parameter ```json``` is a json representation of the Locale.
 
 ```{
-    "localization" : {
-        "name": "Localization 3"
+    "locale" : {
+        "name": "Locale 3",
+        "json": { "hello": "world" }
     }
 }```
 
