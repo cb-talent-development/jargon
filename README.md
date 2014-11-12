@@ -8,6 +8,10 @@
 
 Jargon is a standalone Rails application providing i18n data management via a RESTful interface.
 
+## Prerequisites
+
+1. PostgreSQL
+
 ## Installation
 
 To install:
@@ -15,6 +19,11 @@ To install:
 2. Bundle install (`bundle install`)
 3. Run setup tasks (`bundle exec rake db:create db:migrate`)
 4. Start the server (`bundle exec rails server`)
+
+## TODO
+
+1. Use itself for i18n (finish i18n plugin)
+2. Support different databases
 
 ## Contributing
 

@@ -6,6 +6,6 @@
     = f.label :yaml
     = f.text_area :yaml
   .row
-    = f.submit "Submit", class: 'button tiny success right'
+    = f.submit t('.submit'), class: 'button tiny success right'
 - unless current_page?(:controller => 'locales', :action => 'new')
   = render partial: 'delete_form', locals: {localization: @localization, locale: @locale}
