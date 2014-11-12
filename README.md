@@ -15,6 +15,7 @@ Jargon is a standalone Rails application providing i18n data management via a RE
 ## Installation
 
 To install:
+
 1. Clone this repo (`git clone git@github.com:cb-talent-development/jargon.git`)
 2. Bundle install (`bundle install`)
 3. Run setup tasks (`bundle exec rake db:create db:migrate`)
