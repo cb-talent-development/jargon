@@ -5,7 +5,7 @@ class LocalizationsController < ApplicationController
   end
 
   def show
-    localization!
+    @localization = Localization.find(params[:id])
   end
 
   def new
@@ -23,16 +23,18 @@ class LocalizationsController < ApplicationController
   end
 
   def edit
-    localization!
+    @localization = Localization.find(params[:id])
   end
 
   def update
-    localization!.update(localization_params)
+    @localization = Localization.find(params[:id])
+    @localization.update(localization_params)
     redirect_to @localization
   end
 
   def destroy
-    localization!.destroy
+    @localization = Localization.find(params[:id])
+    @localization.destroy
     redirect_to localizations_path
   end
 
