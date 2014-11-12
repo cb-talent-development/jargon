@@ -4,20 +4,14 @@ gem 'rails', '~> 4.1.6'
 gem 'pg'
 gem 'active_model_serializers'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
 # Front End
 gem 'jquery-rails'
 gem 'foundation-rails', '~> 5.4.5'
 gem 'haml', '~> 4.0.5'
+gem 'uglifier', '>= 1.3.0'
+gem 'sass-rails', '~> 4.0.3'
 
 # Auth
 gem 'doorkeeper', '~> 1.4.0'
