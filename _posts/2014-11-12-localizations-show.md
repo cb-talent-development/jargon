@@ -1,22 +1,23 @@
 ---
 category: Localizations
-path: '/api/localizations'
-title: 'Localizations Index'
+path: '/api/localizations/:id'
+title: 'Show Localization'
 type: 'GET'
 oauth: 'Public Token'
 
 layout: nil
 ---
 
-Returns a collection of all Localizations
+Returns a representation of a localization.
 
 ### Request
 
 * The headers must include a **valid authentication token** with a **public** scope.
+* ```:id``` is the Localization ID
 
 ### Response
 
-Returns a collection of all Localizations.
+Returns the localization.
 
 ```Status: 200 OK```
 ```{
