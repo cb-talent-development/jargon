@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   authenticated :user do
     root to: 'localizations#index', :as => :authenticated_root
   end
+
   root :to => redirect('/users/sign_in')
 end
