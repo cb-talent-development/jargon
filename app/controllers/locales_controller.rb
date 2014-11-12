@@ -15,6 +15,7 @@ class LocalesController < ApplicationController
     if @localization.save
       redirect_to @localization
     else
+      flash[:alert] = "Could not save: #{@locale.errors.full_messages.join("\n") }"
       render :new
     end
   end
@@ -27,7 +28,7 @@ class LocalesController < ApplicationController
   def update
     @locale = Locale.find(params[:id])
     @localization = Localization.find(params[:localization_id])
-    @locale.update!(locale_params)
+    flash[:alert] = "Could not save: #{@locale.errors.full_messages.join("\n") }" unless @locale.update(locale_params)
     redirect_to localization_locale_path(@localization, @locale)
   end
 
@@ -41,6 +42,6 @@ class LocalesController < ApplicationController
   private
 
   def locale_params
-    params.require(:locale).permit(:locale, :data, :yaml)
+    params.require(:locale).permit(:name, :data, :yaml)
   end
 end

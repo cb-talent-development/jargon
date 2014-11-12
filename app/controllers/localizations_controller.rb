@@ -18,6 +18,7 @@ class LocalizationsController < ApplicationController
     if @localization.save
       redirect_to @localization
     else
+      flash[:alert] = "Could not save: #{@localization.errors.full_messages.join("\n") }"
       render :new
     end
   end
@@ -28,7 +29,7 @@ class LocalizationsController < ApplicationController
 
   def update
     @localization = Localization.find(params[:id])
-    @localization.update(localization_params)
+    flash[:alert] = "Could not save: #{@localization.errors.full_messages.join("\n") }" unless @localization.update(localization_params)
     redirect_to @localization
   end
 
