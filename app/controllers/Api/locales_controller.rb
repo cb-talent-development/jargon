@@ -22,8 +22,9 @@ module Api
 
     def update
       find_locale!
+      logger.debug locale_params
       @locale.update!(locale_params)
-      redirect_to locale_api_localization_path(@localization, @locale.name), status: :see_other
+      render json: @locale
     end
 
     def destroy
@@ -44,13 +45,6 @@ module Api
       params.require(:locale).permit(:name, :json)
     end
 
-    def find_localization!
-      @localization ||= Localization.find_by_id!(params[:id])
-    end
 
-    def find_locale!
-      find_localization!
-      @locale ||= Locale.find_by_name!(params[:locale_name])
-    end
   end
 end

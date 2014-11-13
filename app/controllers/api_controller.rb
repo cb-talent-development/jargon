@@ -11,4 +11,15 @@ class APIController < ActionController::Base
   def render_not_found
     render json: {error: "Not Found"}, status: :not_found
   end
+
+  private
+
+  def find_localization!
+    @localization = Localization.find_by_id!(params[:id])
+  end
+
+  def find_locale!
+    find_localization!
+    @locale = Locale.find_by_name!(params[:locale_name])
+  end
 end

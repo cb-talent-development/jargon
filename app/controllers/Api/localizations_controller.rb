@@ -24,7 +24,7 @@ module Api
     def update
       find_localization!
       @localization.update!(localization_params)
-      redirect_to api_localization_path(@localization), status: :see_other
+      render json: @localization
     end
 
     def destroy
@@ -42,10 +42,6 @@ module Api
 
     def localization_params
       params.require(:localization).permit(:name)
-    end
-
-    def find_localization!
-      @localization ||= Localization.find_by_id!(params[:id])
     end
   end
 end
