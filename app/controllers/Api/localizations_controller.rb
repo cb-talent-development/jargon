@@ -10,7 +10,7 @@ module Api
     end
 
     def show
-      @localization = Localization.find(params[:id])
+      @localization = Localization.find_by_id!(params[:id])
       respond_with @localization
     end
 
@@ -22,19 +22,19 @@ module Api
     end
 
     def update
-      @localization = Localization.find(params[:id])
-      @localization.update(localization_params)
+      @localization = Localization.find_by_id!(params[:id])
+      @localization.update!(localization_params)
       redirect_to api_localization_path(@localization), status: :see_other
     end
 
     def destroy
-      @localization = Localization.find(params[:id])
+      @localization = Localization.find_by_id!(params[:id])
       @localization.destroy!
       redirect_to api_localizations_path, status: :see_other
     end
 
     def lookup_by_uuid
-      @localization = Localization.find_by_uuid(params[:uuid])
+      @localization = Localization.find_by_uuid!(params[:uuid])
       respond_with @localization
     end
 
