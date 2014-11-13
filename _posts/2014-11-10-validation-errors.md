@@ -17,9 +17,14 @@ Authorization errors will be returned as an **Status 401 Unauthorized** in the f
 
 Validation errors will be returned as an object with a list of validation errors in plain language.
 
+```HTTP 422 Unprocessable Entity```
 ```{
     "localizations": [
         "Name has already been taken"
     ]
 }
 ```
+
+## Not Found
+
+Attempts to access non-existent content will return **Status 404 Not Found**
