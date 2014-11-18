@@ -9,7 +9,7 @@ layout: nil
 
 Jargon's API expects parameters as either standard POST parameters, or as JSON in the body.
 
-When using json in the body, the request should be accompanied by a 'Content-Type: application/json' header.
+When using json in the body, the request should be accompanied by a **'Content-Type: application/json'** header.
 
 ## Response Format
 

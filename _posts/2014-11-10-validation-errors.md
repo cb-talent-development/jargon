@@ -1,5 +1,5 @@
 ---
-title: 'Errors'
+title: 'API Errors'
 category: api
 
 layout: nil
