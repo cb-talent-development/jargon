@@ -15,7 +15,7 @@ module Api
     end
 
     def create
-      find_localization!
+      @localization = Localization.new(localization_params)
       @localization.owner = User.find(doorkeeper_token.resource_owner_id)
       @localization.save!
       redirect_to api_localization_path(@localization), status: :see_other
