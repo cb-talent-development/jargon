@@ -1,8 +1,7 @@
 module Api
   class LocalesController < APIController
     include LocalizationHelper
-    doorkeeper_for :index, :show, scopes: [:public]
-    doorkeeper_for :create, :update, :destroy, scopes: [:write, :update]
+    doorkeeper_for :all, except: :lookup_by_uuid
 
     def index
       find_localization!
@@ -15,7 +14,8 @@ module Api
     end
 
     def create
-      find_locale!
+      find_localization!
+      @locale = @localization.locales.new(locale_params)
       @localization.save!
       redirect_to locales_api_localization_path(@localization), format: :json
     end

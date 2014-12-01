@@ -7,5 +7,4 @@ Doorkeeper.configure do
     current_user || warden.authenticate!(:scope => :user)
   end
   default_scopes  :public
-  optional_scopes :write, :update
 end
