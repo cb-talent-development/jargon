@@ -30,7 +30,7 @@ RSpec.describe Api::LocalesController, :type => :controller do
   end
 
   describe "POST create" do
-    include_context :write_token
+    include_context :public_token
 
     let(:new_locale) { attributes_for(:locale, :with_json) }
 
@@ -44,7 +44,7 @@ RSpec.describe Api::LocalesController, :type => :controller do
   end
 
   describe "PUT update" do
-    include_context :write_token
+    include_context :public_token
 
     it 'should change the name' do
       put :update, { id: localization.id, locale_name: locale.name, locale: { name: "New Name" } }, { :'Content-Type' => 'application/json'}
@@ -52,7 +52,7 @@ RSpec.describe Api::LocalesController, :type => :controller do
     end
 
     it 'should redirect' do
-      expect(put :update, { id: localization.id, locale_name: locale.name, locale: { name: "New Name" }}, { :'Content-Type' => 'application/json'}).to be_a_redirection
+      expect(put :update, { id: localization.id, locale_name: locale.name, locale: { name: "New Name" }}, { :'Content-Type' => 'application/json'}).to be_a_success
     end
 
     it 'should NOT change Localization.count' do
@@ -61,7 +61,8 @@ RSpec.describe Api::LocalesController, :type => :controller do
    end
 
   describe "DEL destroy" do
-    include_context :write_token
+    include_context :public_token
+
 
     it 'should be a redirection' do
       expect(delete :destroy, id: localization.id, locale_name: locale.name, format: :json).to be_a_redirection

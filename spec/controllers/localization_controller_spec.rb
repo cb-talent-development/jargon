@@ -36,7 +36,7 @@ RSpec.describe Api::LocalizationsController, :type => :controller do
   end
 
   describe "POST create" do
-    include_context :write_token
+    include_context :public_token
     let(:new_localization) { attributes_for(:localization) }
 
     it 'should redirect' do
@@ -48,7 +48,7 @@ RSpec.describe Api::LocalizationsController, :type => :controller do
   end
 
   describe "PUT update" do
-    include_context :write_token
+    include_context :public_token
 
     it 'should change the name' do
       localization = create(:localization)
@@ -58,7 +58,7 @@ RSpec.describe Api::LocalizationsController, :type => :controller do
 
     it 'should redirect' do
       localization = create(:localization)
-      expect(put :update, { id: localization.id, localization: {name: "New Name"}}, { :'Content-Type' => 'application/json'}).to be_a_redirection
+      expect(put :update, { id: localization.id, localization: {name: "New Name"}}, { :'Content-Type' => 'application/json'}).to be_a_success
     end
 
     it 'should NOT change Localization.count' do
@@ -68,7 +68,7 @@ RSpec.describe Api::LocalizationsController, :type => :controller do
   end
 
   describe "DEL destroy" do
-    include_context :write_token
+    include_context :public_token
 
     it 'should be a redirection' do
       localization = create(:localization)
