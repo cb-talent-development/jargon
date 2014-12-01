@@ -1,8 +1,7 @@
 module Api
   class LocalesController < APIController
     include LocalizationHelper
-    doorkeeper_for :index, :show, scopes: [:public]
-    doorkeeper_for :create, :update, :destroy, scopes: [:write, :update]
+    doorkeeper_for :all, except: :lookup_by_uuid
 
     def index
       find_localization!
