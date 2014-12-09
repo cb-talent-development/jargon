@@ -17,7 +17,7 @@ module Api
       find_localization!
       @locale = @localization.locales.new(locale_params)
       @localization.save!
-      redirect_to locales_api_localization_path(@localization), format: :json
+      render json: @locale
     end
 
     def update

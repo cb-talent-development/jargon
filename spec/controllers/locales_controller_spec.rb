@@ -33,12 +33,14 @@ RSpec.describe Api::LocalesController, :type => :controller do
     include_context :public_token
 
     let(:new_locale) { attributes_for(:locale, :with_json) }
+    subject { post :create, {id: localization.id, locale: new_locale }, format: :json}
 
-    it 'should redirect' do
-      expect(post :create, {id: localization.id, locale: new_locale }, { :'Content-Type' => 'application/json'}).to be_a_redirection
-    end
+    it_behaves_like :http_success
+
+    it { is_expected.to render_serializer LocaleSerializer }
+
     it 'should increment Localization.count by 1' do
-      expect{post :create, {id: localization.id, locale: new_locale }, { :'Content-Type' => 'application/json'}}.to change(localization.locales, :count).by 1
+      expect{post :create, {id: localization.id, locale: new_locale }, format: :json}.to change(localization.locales, :count).by 1
     end
 
   end
@@ -47,16 +49,16 @@ RSpec.describe Api::LocalesController, :type => :controller do
     include_context :public_token
 
     it 'should change the name' do
-      put :update, { id: localization.id, locale_name: locale.name, locale: { name: "New Name" } }, { :'Content-Type' => 'application/json'}
+      put :update, { id: localization.id, locale_name: locale.name, locale: { name: "New Name" } }, format: :json
       expect(Locale.find(locale.id).name).to eq "New Name"
     end
 
     it 'should redirect' do
-      expect(put :update, { id: localization.id, locale_name: locale.name, locale: { name: "New Name" }}, { :'Content-Type' => 'application/json'}).to be_a_success
+      expect(put :update, { id: localization.id, locale_name: locale.name, locale: { name: "New Name" }}, format: :json).to be_a_success
     end
 
     it 'should NOT change Localization.count' do
-      expect { put :update, { id: localization.id, locale_name: locale.name, locale: { name: "New Name" }}, { :'Content-Type' => 'application/json'}}.not_to change(Locale, :count)
+      expect { put :update, { id: localization.id, locale_name: locale.name, locale: { name: "New Name" }}, format: :json}.not_to change(Locale, :count)
     end
    end
 
