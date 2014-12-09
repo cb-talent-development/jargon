@@ -17,7 +17,7 @@ module Api
       @localization = Localization.new(localization_params)
       @localization.owner = User.find_by_id(doorkeeper_token.resource_owner_id)
       @localization.save!
-      redirect_to api_localization_path(@localization), status: :see_other
+      render json: @localization
     end
 
     def update

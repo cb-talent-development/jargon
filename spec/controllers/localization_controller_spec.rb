@@ -37,13 +37,16 @@ RSpec.describe Api::LocalizationsController, :type => :controller do
 
   describe "POST create" do
     include_context :public_token
-    let(:new_localization) { attributes_for(:localization) }
 
-    it 'should redirect' do
-      expect(post :create, {localization: new_localization }, { :'Content-Type' => 'application/json'}).to be_a_redirection
-    end
+    let(:new_localization) { attributes_for(:localization) }
+    subject { post :create, {localization: new_localization }, format: :json }
+
+    it_behaves_like :http_success
+
+    it { is_expected.to render_serializer LocalizationSerializer }
+
     it 'should increment Localization.count by 1' do
-      expect{post :create, {localization: new_localization }, { :'Content-Type' => 'application/json'}}.to change(Localization, :count).by 1
+      expect{post :create, {localization: new_localization }, format: :json}.to change(Localization, :count).by 1
     end
   end
 
@@ -52,18 +55,18 @@ RSpec.describe Api::LocalizationsController, :type => :controller do
 
     it 'should change the name' do
       localization = create(:localization)
-      put :update, { id: localization.id, localization: { name: "New Name" } }, { :'Content-Type' => 'application/json'}
+      put :update, { id: localization.id, localization: { name: "New Name" } }, format: :json
       expect(Localization.find(localization.id).name).to eq "New Name"
     end
 
     it 'should redirect' do
       localization = create(:localization)
-      expect(put :update, { id: localization.id, localization: {name: "New Name"}}, { :'Content-Type' => 'application/json'}).to be_a_success
+      expect(put :update, { id: localization.id, localization: {name: "New Name"}}, format: :json).to be_a_success
     end
 
     it 'should NOT change Localization.count' do
       localization = create(:localization)
-      expect { put :update, { id: localization.id, localization: {name: "New Name"}}, { :'Content-Type' => 'application/json'}}.not_to change(Localization, :count)
+      expect { put :update, { id: localization.id, localization: {name: "New Name"}}, format: :json}.not_to change(Localization, :count)
     end
   end
 
