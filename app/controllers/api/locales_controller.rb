@@ -44,7 +44,5 @@ module Api
     def locale_params
       params.require(:locale).permit(:name, :json)
     end
-
-
   end
 end

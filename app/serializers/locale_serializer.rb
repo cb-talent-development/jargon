@@ -1,3 +1,3 @@
 class LocaleSerializer < ActiveModel::Serializer
-  attributes :id, :name, :data
+  attributes :id, :name, :json
 end
