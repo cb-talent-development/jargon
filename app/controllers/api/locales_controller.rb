@@ -5,7 +5,7 @@ module Api
 
     def index
       find_localization!
-      respond_with @localization.list_locales
+      respond_with @localization.locales
     end
 
     def show
