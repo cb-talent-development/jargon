@@ -6,7 +6,7 @@ bundler_args: "--without production staging development"
 before_script:
 - bundle exec rake db:create db:migrate
 script:
-- bundle exec rake spec
+- bundle exec rspec
 env:
   global:
     secure: N5Buh/A50nqR3tq+0wHx8CDwH/6+ADpBoRVs6QhEpWa3A2/XOnT6InrX8ScKNOW0jg2s6au/HfF0d7FwzlKfaGs3BJtGtI4LQPgKkc2qe3LL5xmrG+SRgwNB9w509n/fih6eIlEMxzh6Z+oXfU/O9zrmGl2nMRofwqrCwnauBpk=
