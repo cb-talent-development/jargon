@@ -53,7 +53,7 @@ RSpec.describe Api::LocalesController, :type => :controller do
       expect(Locale.find(locale.id).name).to eq "New Name"
     end
 
-    it 'should redirect' do
+    it 'should be a success' do
       expect(put :update, { id: localization.id, locale_name: locale.name, locale: { name: "New Name" }}, format: :json).to be_a_success
     end
 
@@ -66,8 +66,8 @@ RSpec.describe Api::LocalesController, :type => :controller do
     include_context :public_token
 
 
-    it 'should be a redirection' do
-      expect(delete :destroy, id: localization.id, locale_name: locale.name, format: :json).to be_a_redirection
+    it 'should be a success' do
+      expect(delete :destroy, id: localization.id, locale_name: locale.name, format: :json).to be_a_success
     end
 
     it 'should delete the Localization' do

@@ -29,7 +29,7 @@ module Api
     def destroy
       find_localization!
       @localization.destroy!
-      redirect_to api_localizations_path, status: :see_other
+      render json: @localization
     end
 
     def lookup_by_uuid

@@ -30,7 +30,7 @@ module Api
     def destroy
       find_locale!
       @locale.destroy!
-      redirect_to locales_api_localization_path(@localization), status: :see_other
+      render json: @locale
     end
 
     def lookup_by_uuid
